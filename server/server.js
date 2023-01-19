@@ -26,8 +26,12 @@ const translateText = async (text, lang) => {
 	};
 
 	axios.post("https://lesan.ai/translate-text", data).then(function (response) {
-		console.log("||> " + response.data[0]["text"]);
-		return response.data[0]["text"];
+		// console.log("||> " + response.data[0]["text"]);
+		const lang_tr_data = {
+			lang_tr: response.data[0]["text"],
+			source: "lesan",
+		};
+		return lang_tr_data;
 	});
 
 	// console.log("Res: " + responses.data[0]["text"]);
@@ -123,6 +127,39 @@ app.post("/user", async (req, res) => {
 		res.status(200).send({
 			bot: "Saved!",
 		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).send(error || "Something went wrong");
+	}
+});
+
+app.post("/translate", async (req, res) => {
+	try {
+		var res_lang_data = [{ tr_text: "default", source: "default" }];
+		const req_data = req.body;
+		var data = {
+			text: req_data["text"],
+			src_lang: "en",
+			tgt_lang: req_data["lang"],
+		};
+		var lesan_am = "";
+		await axios
+			.post("https://lesan.ai/translate-text", data)
+			.then(function (response) {
+				lesan_am = response.data[0]["text"];
+
+				res_lang_data.push({
+					tr_text: lesan_am,
+					source: "lesan",
+				});
+			});
+
+		res.status(200).send({
+			bot: res_lang_data,
+		});
+
+		// console.log(":> ", req_data["text"]);
+		// console.log(":> ", res_lang_data);
 	} catch (error) {
 		console.error(error);
 		res.status(500).send(error || "Something went wrong");

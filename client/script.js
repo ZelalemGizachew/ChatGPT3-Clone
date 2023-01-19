@@ -140,8 +140,81 @@ document.getElementById("nav__btn").addEventListener("click", function () {
 });
 
 document.getElementById("language").addEventListener("change", function () {
-	if (this.value !== "en") {
-		lang = this.value;
+	lang = this.value;
+});
+
+const req_translate = async (text, lang) => {
+	const res = await fetch("http://localhost:5000/translate/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			text: text,
+			lang: lang,
+		}),
+	});
+
+	if (res.ok) {
+		const data = await res.json();
+		const response = data.bot; // trims any trailing spaces/'\n'
+
+		// console.log("Response:: ", parsedData);
+
+		// console.log("Response:- ", response);
+		if (response !== 0 && response.length > 0) {
+			// console.log("Response:- ", response.length);
+			var prompt_lang = document.getElementById("prompt_lang");
+
+			response.forEach((item, i) => {
+				var uniqueId = generateUniqueId();
+				if (item["source"] === "lesan") {
+					let langTemplate = formatTranslation(
+						"https://lesan.ai/static/favicon.ico",
+						"Lesan-AI-Logo",
+						item["tr_text"],
+						"https://lesan.ai/",
+						"Lesan.ai",
+						uniqueId
+					);
+
+					prompt_lang.innerHTML = langTemplate;
+				}
+			});
+		}
+	} else {
+		const err = await response.text();
+
+		console.log("errResponse:: ", err);
+		// alert(err);
+		// return 0;
+	}
+
+	// return response;
+};
+
+function formatTranslation(
+	logo,
+	alt_text,
+	text,
+	source_link,
+	source_name,
+	uniqueId
+) {
+	return `
+		<div id="${uniqueId}" onclick="selectThisLanguage(this)">
+			<div id="logo_label">
+				<img src="${logo}" alt="${alt_text}">
+				<label id="lang_label" for="prompt">${text}</label>
+			</div>
+			<label id="lang_source" for="lang_source">Source:<a href="${source_link}">${source_name}</a></label>
+		</div>
+	`;
+}
+
+document.getElementById("prompt").addEventListener("input", function () {
+	if (lang === "am" && this.value.length > 0) {
+		req_translate(this.value, lang);
 	}
 });
 

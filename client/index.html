@@ -53,15 +53,34 @@
     </div>
 
 
-    <form>
-      <textarea name="prompt" rows="1" cols="1" placeholder="Ask Zenox..."></textarea>
-      <button id="submit__btn" type="submit"><img src="assets/send.svg" alt="send" />
-    </form>
+    <div class="form">
+      <div id="prompt_lang">
+        <!-- <div id="logo_label">
+          <img src="https://lesan.ai/static/favicon.ico" alt="Lesan-AI-Logo">
+          <label id="lang_label" for="prompt">አበበ በሶ በላ።አበበ በሶ በላ።አበበ በሶ በላ።አበበ በሶ በላ።አበበ በሶ በላ።አበበ በሶ በላ።
+          </label>
+        </div>
+        <label id="lang_source" for="lang_source">Source:<a href="https://lesan.ai/">Lesan.ai</a></label> -->
+      </div>
+      <form>
+        <textarea id="prompt" name="prompt" rows="1" cols="1" placeholder="Ask Zenox..."></textarea>
+        <button id="submit__btn" type="submit"><img src="assets/send.svg" alt="send" />
+      </form>
+    </div>
   </div>
 
   <script type="module" src="script.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script> -->
+
+  <script>
+    function selectThisLanguage(thisElement) {
+      // console.log(thisElement);
+      const thisTemplateValue = thisElement.children[0].children[1].innerText;
+
+      document.getElementById("prompt").value = thisTemplateValue;
+    }
+  </script>
 </body>
 
 </html>

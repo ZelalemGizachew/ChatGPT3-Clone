@@ -225,13 +225,59 @@ body {
   display: none;
 }
 
-form {
+.form {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 10px;
-  background: #40414F;
+}
 
+#prompt_lang {
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #40414F;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#logo_label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#logo_label img {
+  width: 24px;
+  height: 24px;
+  margin-right: 7px;
+}
+
+#lang_label {
+  color: rgba(186, 186, 186, 0.952);
+  letter-spacing: 1.5px;
+  word-wrap: break-word;
+  padding-bottom: 10px;
+}
+
+#lang_source {
+  color: rgba(113, 113, 113, 0.775);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+  font-style: italic;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#lang_source a {
+  padding-left: 3px;
+  color: rgba(72, 153, 220, 0.891);
+}
+
+form {
+  background: #40414F;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   gap: 10px;
