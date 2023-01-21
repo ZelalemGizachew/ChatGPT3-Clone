@@ -99,7 +99,7 @@ const handleSubmit = async (e) => {
 	// messageDiv.innerHTML = "..."
 	loader(messageDiv);
 
-	const response = await fetch("http://localhost:5000", {
+	const response = await fetch("https://zenox.onrender.com", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -144,7 +144,7 @@ document.getElementById("language").addEventListener("change", function () {
 });
 
 const req_translate = async (text, lang) => {
-	const res = await fetch("http://localhost:5000/translate/", {
+	const res = await fetch("https://zenox.onrender.com/translate/", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
