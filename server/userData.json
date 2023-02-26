@@ -1,7 +1,1 @@
-[
-	{
-		"ip": "Master",
-		"timestamp": "00:00:00:00",
-		"view": 1
-	}
-]
+[{"ip":"Master","timestamp":"00:00:00:00","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:02:39 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:17:10 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:17:32 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:19:54 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:22:35 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:22:47 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:24:39 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:24:40 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.16.98","timestamp":"Sun Feb 26 2023 17:24:57 GMT+0300 (East Africa Time)","view":1}]

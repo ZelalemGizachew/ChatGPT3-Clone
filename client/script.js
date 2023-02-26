@@ -99,7 +99,7 @@ const handleSubmit = async (e) => {
 	// messageDiv.innerHTML = "..."
 	loader(messageDiv);
 
-	const response = await fetch("https://zenox.onrender.com", {
+	const response = await fetch("http://localhost:5000", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -144,7 +144,7 @@ document.getElementById("language").addEventListener("change", function () {
 });
 
 const req_translate = async (text, lang) => {
-	const res = await fetch("https://zenox.onrender.com/translate/", {
+	const res = await fetch("http://localhost:5000/translate/", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -230,7 +230,7 @@ function getUserData() {
 		const userJson = response.data;
 
 		// console.log(userJson["ip"]);
-		axios.post("https://zenox.onrender.com/user", userJson);
+		axios.post("http://localhost:5000/user", userJson);
 	});
 }
 
